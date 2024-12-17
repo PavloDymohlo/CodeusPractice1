@@ -17,7 +17,6 @@ import java.util.Set;
  * and ensure uniqueness of movies.
  */
 public class MovieDao {
-    private final Set<Movie> movies = new LinkedHashSet<>();
 
     /**
      * Registers a new movie.
@@ -29,8 +28,8 @@ public class MovieDao {
      * @return {@code true} if the movie was successfully added, {@code false} if it already exists
      */
     public boolean register(Movie movie) {
-        return movies.add(movie);
-        //throw new UnsupportedOperationException(); // todo: Implement this method
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -41,8 +40,8 @@ public class MovieDao {
      * @return a set of all movies
      */
     public Set<Movie> findAll() {
-        return new LinkedHashSet<>(movies);
-        //throw new UnsupportedOperationException(); // todo: Implement this method
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -54,10 +53,8 @@ public class MovieDao {
      * @return the movie with the matching title, or {@code null} if no match is found
      */
     public Movie findByTitle(String title) {
-        return movies.stream()
-                .filter(movie -> movie.getTitle().equalsIgnoreCase(title))
-                .findFirst()
-                .orElse(null);
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -69,7 +66,8 @@ public class MovieDao {
      * @return {@code true} if any movies were removed, {@code false} otherwise
      */
     public boolean removeByTitle(String title) {
-        return movies.removeIf(movie -> movie.getTitle().equalsIgnoreCase(title));
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -78,14 +76,16 @@ public class MovieDao {
      * @return the total count of movies
      */
     public int countMovies() {
-        return movies.size();
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
      * Clears all registered movies from the collection.
      */
     public void clearAll() {
-        movies.clear();
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
 
@@ -96,10 +96,7 @@ public class MovieDao {
      * @return a set of movies released in the specified year
      */
     public Set<Movie> findMoviesByYear(int year) {
-        Set<Movie> result = new LinkedHashSet<>();
-        movies.stream()
-                .filter(movie -> movie.getYear() == year)
-                .forEach(result::add);
-        return result;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 }

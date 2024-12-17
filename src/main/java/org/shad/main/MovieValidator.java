@@ -22,7 +22,7 @@ public class MovieValidator {
      *   <li>Contain only letters, numbers, and spaces.</li>
      * </ul>
      */
-    private static final String TITLE_REGEX = "^[A-Z][A-Za-z0-9 ]*$";
+    // todo: Implement expression
     /**
      * Validates the given movie title.
      * <p>
@@ -36,11 +36,7 @@ public class MovieValidator {
      * @throws IllegalArgumentException if the title is {@code null}, blank, or does not match the pattern
      */
     public static void validateTitle(String title) {
-        if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Title cannot be null or blank");
-        }
-        if (!title.matches(TITLE_REGEX)) {
-            throw new IllegalArgumentException("Invalid movie title: " + title);
-        }
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 }

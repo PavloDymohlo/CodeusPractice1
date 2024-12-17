@@ -22,11 +22,8 @@ public class Movie {
      * @throws IllegalArgumentException if the year is not a positive integer
      */
     public Movie(String title, int year) {
-        if (year <= 0) {
-            throw new IllegalArgumentException("Year must be a positive integer");
-        }
-        this.title = title;
-        this.year = year;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -35,7 +32,8 @@ public class Movie {
      * @return the title of the movie
      */
     public String getTitle() {
-        return title;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -44,7 +42,8 @@ public class Movie {
      * @return the release year of the movie
      */
     public int getYear() {
-        return year;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -56,7 +55,8 @@ public class Movie {
      * @throws IllegalArgumentException if the year is not a positive integer
      */
     public static Movie of(String title, int year) {
-        return new Movie(title, year);
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -69,10 +69,8 @@ public class Movie {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Movie movie = (Movie) o;
-        return year == movie.year && Objects.equals(title, movie.title);
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -84,7 +82,8 @@ public class Movie {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(title, year);
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
