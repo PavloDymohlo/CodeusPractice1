@@ -23,10 +23,9 @@ public class UpgradeMovieService extends MovieService {
      */
     public List<Movie> getAllMoviesSorted(boolean ascending, boolean sortByYear) {
         Comparator<Movie> comparator = sortByYear
-                ? Comparator.comparing(Movie::getYear)   // Sort by year
-                : Comparator.comparing(Movie::getTitle); // Sort by title
+                ? Comparator.comparing(Movie::getYear)
+                : Comparator.comparing(Movie::getTitle);
 
-        // Apply descending order if not ascending
         if (!ascending) {
             comparator = comparator.reversed();
         }
@@ -65,7 +64,6 @@ public class UpgradeMovieService extends MovieService {
         if (startYear > endYear) {
             throw new IllegalArgumentException("Start year cannot be greater than end year.");
         }
-
         return getMovieDao().findAll().stream()
                 .filter(movie -> movie.getYear() >= startYear && movie.getYear() <= endYear)
                 .collect(Collectors.toList());
