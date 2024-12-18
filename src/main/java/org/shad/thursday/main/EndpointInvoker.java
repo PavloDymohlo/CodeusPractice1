@@ -19,7 +19,7 @@ import java.util.Set;
  */
 public class EndpointInvoker {
 
-    private final Reflections reflections;
+    //todo Implement field
 
     /**
      * Initializes the {@code EndpointInvoker} with a specific base package to scan for
@@ -28,7 +28,8 @@ public class EndpointInvoker {
      * @param basePackage the base package to scan for {@link Controller} and {@link EndpointHandler} annotations.
      */
     public EndpointInvoker(String basePackage) {
-        this.reflections = new Reflections(basePackage);
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -40,16 +41,8 @@ public class EndpointInvoker {
      *         - Returns a {@link UnsuccessfulResponse} with a 500 status in case of any internal error.
      */
     public Response handleRequest(Request request) {
-        try {
-            Optional<Method> matchedMethod = findMatchingMethod(request.getEndpoint());
-            if (matchedMethod.isEmpty()) {
-                return new UnsuccessfulResponse("404 Not Found", "Unknown command");
-            }
-            return invokeEndpointMethod(matchedMethod.get(), request);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new UnsuccessfulResponse("500 Internal Server Error", "Server error");
-        }
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -59,19 +52,8 @@ public class EndpointInvoker {
      * @return an {@link Optional} containing the matched {@link Method} if found, or an empty {@link Optional} otherwise.
      */
     private Optional<Method> findMatchingMethod(String endpoint) {
-        // Retrieve all classes annotated with @Controller in the specified package
-        Set<Class<?>> controllers = reflections.getTypesAnnotatedWith(Controller.class);
-
-        // Iterate through all classes and their methods to find a match
-        for (Class<?> controllerClass : controllers) {
-            for (Method method : controllerClass.getDeclaredMethods()) {
-                EndpointHandler annotation = method.getAnnotation(EndpointHandler.class);
-                if (annotation != null && annotation.endpoint().equals(endpoint)) {
-                    return Optional.of(method);
-                }
-            }
-        }
-        return Optional.empty();
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -84,10 +66,7 @@ public class EndpointInvoker {
      *                   such as instantiation failure or access issues.
      */
     private Response invokeEndpointMethod(Method method, Request request) throws Exception {
-        // Create an instance of the controller class containing the method
-        Object controllerInstance = method.getDeclaringClass().getDeclaredConstructor().newInstance();
-
-        // Invoke the method with the Request object and return the response
-        return (Response) method.invoke(controllerInstance, request);
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 }

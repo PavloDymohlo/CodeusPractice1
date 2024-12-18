@@ -8,12 +8,7 @@ import java.util.Map;
  * Represents an HTTP Request with method, command, headers, body, and query string.
  */
 public class Request {
-    private final String method;
-    private final String command;
-    private final String body;
-    private final String endpoint;
-    private final List<HTTPHeader> headers;
-    private final Map<String, String> queryString;
+    //todo Implement fields
 
     /**
      * Constructs an HTTP Request object.
@@ -26,19 +21,8 @@ public class Request {
      * @throws IllegalArgumentException if method or command is null/empty
      */
     public Request(String method, String command, String body, List<HTTPHeader> headers, Map<String, String> queryString) {
-        if (method == null || method.isEmpty()) {
-            throw new IllegalArgumentException("HTTP method cannot be null or empty");
-        }
-        if (command == null || command.isEmpty()) {
-            throw new IllegalArgumentException("HTTP command cannot be null or empty");
-        }
-
-        this.method = method;
-        this.command = command;
-        this.body = body != null ? body : "";
-        this.endpoint = method + " " + command;
-        this.headers = headers != null ? Collections.unmodifiableList(headers) : Collections.emptyList();
-        this.queryString = queryString != null ? Collections.unmodifiableMap(queryString) : Collections.emptyMap();
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -47,7 +31,8 @@ public class Request {
      * @return HTTP method (e.g., GET, POST)
      */
     public String getMethod() {
-        return method;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -56,7 +41,8 @@ public class Request {
      * @return HTTP command or path
      */
     public String getCommand() {
-        return command;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -65,7 +51,8 @@ public class Request {
      * @return Request body content
      */
     public String getBody() {
-        return body;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -74,7 +61,8 @@ public class Request {
      * @return Endpoint string
      */
     public String getEndpoint() {
-        return endpoint;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -83,7 +71,8 @@ public class Request {
      * @return Unmodifiable list of headers
      */
     public List<HTTPHeader> getHeaders() {
-        return headers;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -92,6 +81,7 @@ public class Request {
      * @return Unmodifiable map of query parameters
      */
     public Map<String, String> getQueryString() {
-        return queryString;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 }

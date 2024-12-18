@@ -11,8 +11,6 @@ package org.shad.thursday.warmup;
  * </pre>
  */
 public class HTTPHeader {
-    private final String name;
-    private final String value;
 
     /**
      * Private constructor to initialize an HTTP header.
@@ -22,11 +20,8 @@ public class HTTPHeader {
      * @throws IllegalArgumentException if the name is null, empty, or if the value is null
      */
     private HTTPHeader(String name, String value) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Header name cannot be null or empty");
-        }
-        this.name = name.trim().toLowerCase(); // Normalize header name to lowercase
-        this.value = value != null ? value.trim() : "";
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -38,13 +33,8 @@ public class HTTPHeader {
      * @throws IllegalArgumentException if the name is null, empty, or if the value is null
      */
     public static HTTPHeader of(String name, String value) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Header name cannot be null or empty");
-        }
-        if (value == null) {
-            throw new IllegalArgumentException("Header value cannot be null");
-        }
-        return new HTTPHeader(name, value.trim());
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -58,29 +48,8 @@ public class HTTPHeader {
      *                                  or if the name or value is invalid
      */
     public static HTTPHeader parse(String rawHeader) {
-        System.out.println("Parsing raw header: " + rawHeader);
-
-        if (rawHeader == null || rawHeader.isBlank()) {
-            throw new IllegalArgumentException("Invalid header format: Header cannot be null or blank");
-        }
-
-        if (!rawHeader.contains(":")) {
-            throw new IllegalArgumentException("Invalid header format: " + rawHeader);
-        }
-
-        String[] parts = rawHeader.split(":", 2);
-        String name = parts[0].trim();
-        String value = parts.length > 1 ? parts[1].trim() : "";
-
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException("Header name cannot be null or empty");
-        }
-
-        if (value.isEmpty()) {
-            throw new IllegalArgumentException("Header value cannot be null or empty");
-        }
-
-        return new HTTPHeader(name, value);
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -89,7 +58,8 @@ public class HTTPHeader {
      * @return the name of the header, normalized to lowercase
      */
     public String getName() {
-        return name;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -98,6 +68,7 @@ public class HTTPHeader {
      * @return the value of the header
      */
     public String getValue() {
-        return value;
+        // todo: Implement this method
+        throw new UnsupportedOperationException();
     }
 }

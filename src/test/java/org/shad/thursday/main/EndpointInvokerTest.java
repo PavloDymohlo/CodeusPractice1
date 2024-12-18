@@ -1,13 +1,13 @@
-package org.shad.thursday.warmup;
+package org.shad.thursday.main;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.shad.thursday.main.EndpointInvoker;
 import org.shad.thursday.main.anotation.Controller;
 import org.shad.thursday.main.anotation.EndpointHandler;
 import org.shad.thursday.main.entity.Response;
 import org.shad.thursday.main.entity.responseimpl.UnsuccessfulResponse;
 import org.shad.thursday.main.entity.responseimpl.SuccessfulResponse;
+import org.shad.thursday.warmup.Request;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +16,7 @@ class EndpointInvokerTest {
 
     @BeforeEach
     public void setup() {
-        invoker = new EndpointInvoker("org.shad.thursday.warmup");
+        invoker = new EndpointInvoker("org.shad.thursday");
     }
 
     @Test

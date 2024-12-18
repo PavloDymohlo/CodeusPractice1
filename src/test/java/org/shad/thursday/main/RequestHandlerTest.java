@@ -1,8 +1,9 @@
-package org.shad.thursday.warmup;
+package org.shad.thursday.main;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.shad.thursday.main.RequestHandler;
+import org.shad.thursday.warmup.HTTPHeader;
+import org.shad.thursday.warmup.Request;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
