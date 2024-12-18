@@ -1,6 +1,8 @@
-package org.shad.warmup;
+package org.shad.tuesday.warmup;
 
 import org.junit.jupiter.api.Test;
+import org.shad.tuesday.warmup.Movie;
+import org.shad.tuesday.warmup.MovieDao;
 
 import java.util.Set;
 

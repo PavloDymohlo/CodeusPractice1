@@ -1,6 +1,7 @@
-package org.shad.warmup;
+package org.shad.tuesday.warmup;
 
 import org.junit.jupiter.api.Test;
+import org.shad.tuesday.warmup.Movie;
 
 import static org.junit.jupiter.api.Assertions.*;
 

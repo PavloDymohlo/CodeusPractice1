@@ -1,6 +1,4 @@
-package org.shad.warmup;
-
-import java.util.Objects;
+package org.shad.tuesday.warmup;
 
 /**
  * Represents a movie with a title and a release year.

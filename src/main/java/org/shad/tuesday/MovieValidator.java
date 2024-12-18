@@ -1,4 +1,4 @@
-package org.shad.main;
+package org.shad.tuesday;
 
 /**
  * The {@code MovieValidator} class provides utility methods for validating movie titles.

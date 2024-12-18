@@ -1,11 +1,9 @@
-package org.shad.main;
+package org.shad.tuesday;
 
-import org.shad.warmup.Movie;
-import org.shad.warmup.MovieDao;
+import org.shad.tuesday.warmup.Movie;
+import org.shad.tuesday.warmup.MovieDao;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class UpgradeMovieService {
 

@@ -1,4 +1,4 @@
-package org.shad.warmup;
+package org.shad.tuesday.warmup;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

@@ -1,9 +1,10 @@
-package org.shad.main;
+package org.shad.tuesday.main;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.shad.warmup.Movie;
-import org.shad.warmup.MovieDao;
+import org.shad.tuesday.MovieService;
+import org.shad.tuesday.warmup.Movie;
+import org.shad.tuesday.warmup.MovieDao;
 
 import java.util.List;
 

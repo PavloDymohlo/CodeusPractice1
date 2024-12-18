@@ -1,6 +1,7 @@
-package org.shad.main;
+package org.shad.tuesday.main;
 
 import org.junit.jupiter.api.Test;
+import org.shad.tuesday.MovieValidator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
