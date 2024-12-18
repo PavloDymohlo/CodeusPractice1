@@ -2,9 +2,12 @@ package org.shad.thursday.warmup;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.shad.thursday.warmup.entity.Response;
-import org.shad.thursday.warmup.entity.responseimpl.UnsuccessfulResponse;
-import org.shad.thursday.warmup.entity.responseimpl.SuccessfulResponse;
+import org.shad.thursday.main.EndpointInvoker;
+import org.shad.thursday.main.anotation.Controller;
+import org.shad.thursday.main.anotation.EndpointHandler;
+import org.shad.thursday.main.entity.Response;
+import org.shad.thursday.main.entity.responseimpl.UnsuccessfulResponse;
+import org.shad.thursday.main.entity.responseimpl.SuccessfulResponse;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -14,8 +14,14 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.2'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.mockito:mockito-core:5.2.0'
+    testImplementation 'org.mockito:mockito-inline:5.2.0'
 }
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(Test) {
+    jvmArgs '-Dnet.bytebuddy.experimental=true'
 }
