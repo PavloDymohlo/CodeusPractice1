@@ -16,14 +16,16 @@ import java.util.logging.Logger;
  */
 public class Server {
 
-    //todo Implement fields
+    private static final int PORT = 8080;
+    private static final int THREAD_POOL_SIZE = 10;
+    private static final Logger logger = Logger.getLogger(Server.class.getName());
+    private final ExecutorService executorService;
 
     /**
      * Initializes the server with a fixed thread pool.
      */
     public Server() {
-        // todo: Implement this method
-        throw new UnsupportedOperationException();
+        this.executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
     }
 
     /**
@@ -32,8 +34,7 @@ public class Server {
      * @param args Command-line arguments (not used).
      */
     public static void main(String[] args) {
-        // todo: Implement this method
-        throw new UnsupportedOperationException();
+        new Server().run();
     }
 
     /**
@@ -41,8 +42,19 @@ public class Server {
      * For each connection, a task is submitted to a thread pool for handling.
      */
     public void run() {
-        // todo: Implement this method
-        throw new UnsupportedOperationException();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            executorService.shutdown();
+        }));
+
+        try {
+            ServerSocket serverSocket = new ServerSocket(PORT);
+            while (true) {
+                Socket connection = serverSocket.accept();
+                executorService.submit(() -> handleConnection(connection));
+            }
+        } catch (IOException e) {
+            logger.severe("Could not start server: " + e.getMessage());
+        }
     }
 
     /**
@@ -51,7 +63,29 @@ public class Server {
      * @param connection The client socket connection.
      */
     private void handleConnection(Socket connection) {
-        // todo: Implement this method
-        throw new UnsupportedOperationException();
+        try (
+                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                PrintStream pout = new PrintStream(connection.getOutputStream());
+        ) {
+            try {
+                Request request = new RequestHandler().parseRequest(in);
+                Response response = new EndpointInvoker("org.shad").handleRequest(request);
+                pout.print(response.serialize());
+            } catch (IllegalArgumentException e) {
+                String badRequestResponse =
+                        "HTTP/1.0 400 Bad Request\r\n" +
+                                "Content-length: 0\r\n" +
+                                "\r\n";
+                pout.print(badRequestResponse);
+            }
+        } catch (IOException e) {
+            logger.severe("Error processing request: " + e.getMessage());
+        } finally {
+            try {
+                connection.close();
+            } catch (IOException e) {
+                logger.severe("Error closing connection: " + e.getMessage());
+            }
+        }
     }
 }

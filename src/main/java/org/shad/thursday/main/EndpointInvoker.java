@@ -19,7 +19,7 @@ import java.util.Set;
  */
 public class EndpointInvoker {
 
-    //todo Implement field
+    private final Reflections reflections;
 
     /**
      * Initializes the {@code EndpointInvoker} with a specific base package to scan for
@@ -28,8 +28,7 @@ public class EndpointInvoker {
      * @param basePackage the base package to scan for {@link Controller} and {@link EndpointHandler} annotations.
      */
     public EndpointInvoker(String basePackage) {
-        // todo: Implement this method
-        throw new UnsupportedOperationException();
+        this.reflections = new Reflections(basePackage);
     }
 
     /**
@@ -37,12 +36,20 @@ public class EndpointInvoker {
      *
      * @param request the incoming {@link Request} object containing the endpoint and other HTTP details.
      * @return a {@link Response} object, representing the outcome of the request handling.
-     *         - Returns a {@link UnsuccessfulResponse} with a 404 status if no matching endpoint is found.
-     *         - Returns a {@link UnsuccessfulResponse} with a 500 status in case of any internal error.
+     * - Returns a {@link UnsuccessfulResponse} with a 404 status if no matching endpoint is found.
+     * - Returns a {@link UnsuccessfulResponse} with a 500 status in case of any internal error.
      */
     public Response handleRequest(Request request) {
-        // todo: Implement this method
-        throw new UnsupportedOperationException();
+        try {
+            Optional<Method> matchedMethod = findMatchingMethod(request.getEndpoint());
+            if (matchedMethod.isEmpty()) {
+                return new UnsuccessfulResponse("404 Not Found", "Unknown command");
+            }
+            return invokeEndpointMethod(matchedMethod.get(), request);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new UnsuccessfulResponse("500 Internal Server Error", "Server error");
+        }
     }
 
     /**
@@ -52,8 +59,16 @@ public class EndpointInvoker {
      * @return an {@link Optional} containing the matched {@link Method} if found, or an empty {@link Optional} otherwise.
      */
     private Optional<Method> findMatchingMethod(String endpoint) {
-        // todo: Implement this method
-        throw new UnsupportedOperationException();
+        Set<Class<?>> controllers = reflections.getTypesAnnotatedWith(Controller.class);
+        for (Class<?> controllerClass : controllers) {
+            for (Method method : controllerClass.getDeclaredMethods()) {
+                EndpointHandler endpointHandler = method.getAnnotation(EndpointHandler.class);
+                if (endpointHandler != null && endpointHandler.endpoint().equals(endpoint)) {
+                    return Optional.of(method);
+                }
+            }
+        }
+        return Optional.empty();
     }
 
     /**
@@ -66,7 +81,7 @@ public class EndpointInvoker {
      *                   such as instantiation failure or access issues.
      */
     private Response invokeEndpointMethod(Method method, Request request) throws Exception {
-        // todo: Implement this method
-        throw new UnsupportedOperationException();
+        Object controllerInstance = method.getDeclaringClass().getDeclaredConstructor().newInstance();
+        return (Response) method.invoke(controllerInstance, request);
     }
 }
